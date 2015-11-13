@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def create
-  end
+  # def create
+  #   @index = Index.new
+  # end
 
 end
