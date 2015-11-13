@@ -2,12 +2,14 @@ RSpec.feature 'create_new_recipe' do
 
   scenario 'valid information' do
     visit root_path
+    binding.pry
     click_on 'new recipe'
 
-    binding.pry
-# Name! Capitals! type isn't necessary, figure that out
-    fill_in 'name', :with => 'pants'
-    select 'type'
-    click_on 'create'
+    fill_in 'Name', :with => 'pants'
+    # type isn't necessary, figure that out
+    # select 'type'
+
+    click_on 'Create Recipe'
+    # visit root_path
   end
 end
