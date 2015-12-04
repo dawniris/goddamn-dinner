@@ -5,10 +5,11 @@ RSpec.feature 'create_new_recipe' do
     click_on 'new recipe'
 
     fill_in 'Name', :with => 'pants'
-    #'type' isn't necessary, facilitate use
+    ## haven't bothered implementing type yet; suck it
     # select 'type'
     click_on 'Create Recipe'
-    visit root_path
-    click_on 'recipe index'
+
+    expect(page.body).to have_link 'pants'
+    expect(current_path).to eq recipes_path
   end
 end
