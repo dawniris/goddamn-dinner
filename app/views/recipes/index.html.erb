@@ -1,0 +1,28 @@
+<!-- go into the shitballs scaffold -->
+
+<h1>Some Goddamn Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Infobox</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe_path(:id => recipe.id) %></td>
+        <td><%= recipe.infobox %></td>
+        <td><%#= link_to 'Edit', edit_recipe_path(recipe)%></td>
+        <td><%#= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Delete recipe?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>
