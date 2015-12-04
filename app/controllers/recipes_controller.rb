@@ -10,12 +10,13 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-
-    respond_to do |controller_request_env|
+### respond_to passes in a controller object indicating how the request was sent (i.e. JSON/HTML)
+### hence, why the variable passed in used to be named 'controller_request_env' -- more Rails magic
+    respond_to do |format|
       if @recipe.save
-        controller_request_env.html { redirect_to recipes_path, notice: "Congrats, recipe" }
+        format.html { redirect_to recipes_path, notice: "Recipe == created" }
       else
-        controller_request_env.html { render :new }
+        format.html { render :new }
       end
     end
   end
@@ -24,6 +25,21 @@ class RecipesController < ApplicationController
     @recipe = Recipe.first
   end
 
+  def edit
+    @recipe = Recipe.first
+  end
+
+  def update
+    @recipe = Recipe.first
+
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html {redirect_to recipes_path, notice: 'Recipe == updated'}
+      else
+        format.html {render :edit}
+      end
+    end
+  end
 
   private
 
