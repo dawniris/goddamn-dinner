@@ -1,5 +1,5 @@
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name %>
-    <%= f.input :infobox %>
+    <%= f.input :infobox, input_html: { id: 'box' }%>
     <%= f.button :submit %>
   <% end %>

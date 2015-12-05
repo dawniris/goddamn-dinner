@@ -1,6 +1,7 @@
 RSpec.feature 'view new recipe' do
 
   let!(:recipe) { FactoryGirl.create(:recipe) }
+  let!(:recipe_two) { FactoryGirl.create(:recipe) }
 
   scenario 'can see content' do
     visit recipes_path
@@ -10,4 +11,5 @@ RSpec.feature 'view new recipe' do
     expect(page.body).to have_content(recipe.infobox)
     expect(current_path).to eq recipe_path(:id => recipe.id)
   end
+
 end

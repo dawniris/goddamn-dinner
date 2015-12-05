@@ -1,5 +1,7 @@
 FactoryGirl.define do
+
   factory :recipe do
-    name "pants"
+    sequence(:name) { |n| "cheesy #{n} pants" }
+    sequence(:infobox) { |n| "here is #{n} recipe" }
   end
 end
