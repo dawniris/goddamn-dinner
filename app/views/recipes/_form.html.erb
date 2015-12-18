@@ -1,5 +1,6 @@
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name %>
     <%= f.input :infobox, input_html: { id: 'box' }%>
+    <%= f.association :tags, collection: Tag.all, as: :check_boxes %>
     <%= f.button :submit %>
   <% end %>
