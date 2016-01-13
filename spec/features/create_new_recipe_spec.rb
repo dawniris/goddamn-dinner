@@ -1,6 +1,6 @@
 RSpec.feature 'create_new_recipe' do
 
-let!(:tag) { FactoryGirl.create(:tag) }
+let!(:category) { FactoryGirl.create(:category) }
 
   scenario 'valid information' do
     visit root_path
@@ -8,7 +8,7 @@ let!(:tag) { FactoryGirl.create(:tag) }
 
     fill_in 'Name', :with => 'pants'
     ## haven't bothered implementing type yet; suck it
-    check tag.name
+    check category.name
     click_on 'Create Recipe'
 
     expect(page.body).to have_link 'pants'

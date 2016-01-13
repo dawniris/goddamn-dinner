@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :recipes
 
+  resources :categories
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

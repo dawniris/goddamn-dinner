@@ -8,6 +8,7 @@ RSpec.feature 'can edit extant recipe' do
     within("#recipe-information-#{recipe.id}") do
       click_on 'Edit'
     end
+    binding.pry
     fill_in 'Name', :with => 'different pants'
     fill_in 'box', :with => 'here is recipe'
     click_on 'Update Recipe'
