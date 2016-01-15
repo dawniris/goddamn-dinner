@@ -16,6 +16,7 @@
       <tr id="recipe-information-<%= recipe.id %>">
         <td><%= link_to recipe.name, recipe_path(:id => recipe.id) %></td>
         <td><%= recipe.infobox %></td>
+        <td><%= recipe.categories.map(&:name).join(', ') %></td> <-- NEW LINE HERE -->
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Delete recipe?' } %></td>
       </tr>
