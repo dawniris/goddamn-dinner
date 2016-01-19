@@ -1,4 +1,4 @@
-RSpec.feature 'add_new_tag' do
+RSpec.feature 'add_tag_to_recipe' do
 
 let!(:category) { FactoryGirl.create(:category) }
 let!(:recipe) { FactoryGirl.create(:recipe) }
@@ -8,6 +8,7 @@ let!(:recipe) { FactoryGirl.create(:recipe) }
     within("#recipe-information-#{recipe.id}") do
       click_on 'Edit'
     end
+
     check(category.name)
     click_on 'Update Recipe'
     click_on recipe.name

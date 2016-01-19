@@ -13,8 +13,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 ### respond_to passes in a controller object indicating how the request was sent (i.e. JSON/HTML)
 ### hence, why the variable passed in used to be named 'controller_request_env' -- more Rails magic
+
     respond_to do |format|
       if @recipe.save
+        @recipe.category_ids = params[:recipe][:category_ids]
         format.html { redirect_to recipes_path, notice: "Recipe == created" }
       else
         format.html { render :new }
@@ -29,6 +31,8 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe.category_ids = params[:recipe][:category_ids]
+
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to recipes_path, notice: 'Recipe == updated' }
@@ -51,6 +55,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :infobox, :categories)
+      params.require(:recipe).permit(:name, :infobox)
     end
 end

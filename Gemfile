@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'valid_attribute'
   gem 'launchy'
+  gem 'orderly'
 end
 
 group :development do

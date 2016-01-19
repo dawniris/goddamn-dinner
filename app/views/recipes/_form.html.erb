@@ -1,7 +1,7 @@
   <%= simple_form_for @recipe do |f| %>
     <%= f.input :name %>
     <%= f.input :infobox, input_html: { id: 'box' }%>
-    <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :name %>
+    <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id %>
     <%#= f.association :categories, collection: @categories, as: :check_boxes ##THIS CAUSES CATEGORY TO JUST BE YES/NO CHECKBOXES, IS HILARIOUS%>
 
     <%= f.button :submit %>

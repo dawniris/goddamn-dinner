@@ -10,6 +10,6 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= @recipe.categories %>
+  <%= @recipe.categories.map(&:name).join(', ') %>
 </p>
 

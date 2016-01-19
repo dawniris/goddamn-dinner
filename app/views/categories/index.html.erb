@@ -1,2 +1,22 @@
-<div><%= link_to "new recipe", new_recipe_path %></div>
-<div><%= link_to "recipes", recipes_path %></div>
+<h1>Here's Your Fucking Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr id="category-information-<%= category.id %>">
+        <td><%= link_to category.name, category_path(:id => category.id) %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Delete category?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
