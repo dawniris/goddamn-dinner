@@ -1,8 +1,10 @@
-<h1>Here's Your Fucking Tags</h1>
+<h1 style="margin-left:30px">Here's Your Fucking Tags</h1>
 
 <table>
   <thead>
     <tr>
+      <!-- todo: find a better way of making a stupid blank space jeez -->
+      <th></th>
       <th>Name</th>
       <th colspan="4"></th>
     </tr>
@@ -11,9 +13,10 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr id="category-information-<%= category.id %>">
-        <td><%= link_to category.name, category_path(:id => category.id) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Delete category?' } %></td>
+        <td style="width:30px"> </td>
+        <td style="width:50%"><%= link_to category.name, category_path(:id => category.id) %></td>
+        <td style="width:35px"><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td style="width:35px"><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Delete category?' } %></td>
       </tr>
     <% end %>
   </tbody>
