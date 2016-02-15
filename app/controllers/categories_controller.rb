@@ -6,8 +6,10 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    #this goes [A-Z][a-z]
-    @categories = Category.order(:name)
+    ## this goes [A-Z][a-z]
+    # @categories = Category.order(:name)
+
+    @categories = Category.all.order('LOWER(name)')
   end
 
   def edit
