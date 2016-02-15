@@ -7,7 +7,6 @@ let!(:category) { FactoryGirl.create(:category) }
     click_on 'new recipe'
 
     fill_in 'Name', :with => 'pants'
-    ## haven't bothered implementing type yet; suck it
     check category.name
     click_on 'Create Recipe'
 
@@ -36,4 +35,18 @@ let!(:category) { FactoryGirl.create(:category) }
     click_on 'more pants'
     expect(page.body).to have_content "FUCKING"
   end
+
+  scenario 'graceful fail when name not included' do
+    visit root_path
+    click_on 'new recipe'
+    check category.name
+    click_on 'Create Recipe'
+
+    expect(page.body).to have_content "can't be blank"
+    expect(current_path).to eq recipes_path
+  end
+
+  # scenario 'invalid recipe doesn\'t save; redirects to recipe/new' do
+
+  # end
 end
