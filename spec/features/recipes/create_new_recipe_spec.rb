@@ -46,6 +46,24 @@ let!(:category) { FactoryGirl.create(:category) }
     expect(current_path).to eq recipes_path
   end
 
+  scenario 'infobox on recipe page, not index' do
+    visit root_path
+    click_on 'new recipe'
+    fill_in 'Name', :with => 'recipe name'
+    fill_in 'Infobox', :with => 'some recipe information'
+    click_on 'Create Recipe'
+
+    expect(current_path).to eq recipes_path
+    expect(page.body).to have_content "name"
+    expect(page.body).to_not have_content "information"
+
+    click_on 'recipe name'
+    expect(page.body).to have_content "information"
+    recipe = Recipe.where(:name => 'recipe name').first
+    expect(current_path).to eq recipe_path(recipe)
+  end
+
+
   # scenario 'invalid recipe doesn\'t save; redirects to recipe/new' do
 
   # end

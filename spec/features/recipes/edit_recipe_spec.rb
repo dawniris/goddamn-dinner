@@ -12,6 +12,8 @@ RSpec.feature 'can edit extant recipe' do
     fill_in 'box', :with => 'here is recipe'
     click_on 'Update Recipe'
     expect(page.body).to have_content ('different pants')
+
+    click_on 'different pants'
     expect(page.body).to have_content ('here is recipe')
   end
 
