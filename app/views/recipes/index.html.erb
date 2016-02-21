@@ -12,10 +12,10 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr id="recipe-information-<%= recipe.id %>">
-        <td style="width:40%"><%= link_to recipe.name, recipe_path(:id => recipe.id), class: "a" %></td>
+        <td style="width:40%"><%= link_to recipe.name, recipe_path(:id => recipe.id) %></td>
         <td><%= recipe.categories.map(&:name).join(', ') %></td>
-        <td style="width:35px"><%= link_to 'Edit', edit_recipe_path(recipe), class: "a" %></td>
-        <td style="width:35px"><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Delete recipe?' }, class: "a" %></td>
+        <td style="width:35px"><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td style="width:35px"><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Delete recipe?' } %></td>
       </tr>
     <% end %>
   </tbody>
