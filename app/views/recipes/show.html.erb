@@ -1,15 +1,19 @@
 <p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
+  <strong><%= @recipe.name %></strong>
 </p>
 
 <p>
-  <strong>Infobox:</strong>
   <%= @recipe.infobox %>
 </p>
 
 <p>
-  <strong>Tags:</strong>
-  <%= @recipe.categories.map(&:name).join(', ') %>
+  <tbody>
+    <strong>tags:</strong>
+    <% @recipe.categories.each do |category| %>
+      <tr id="category-information-<%= category.id %>">
+        <td><%= link_to category.name, category_path(:id => category.id) %> </td>
+    </tr>
+    <% end %>
+  </tbody>
 </p>
 

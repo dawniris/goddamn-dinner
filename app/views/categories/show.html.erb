@@ -1,4 +1,12 @@
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <strong> <%= @category.name %> </strong>
+</p>
+<p>
+  <tbody>
+    <% @category.recipes.each do |recipe| %>
+      <tr id="recipe-information-<%= recipe.id %>">
+        <td><%= link_to recipe.name, recipe_path(:id => recipe.id) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
 </p>
