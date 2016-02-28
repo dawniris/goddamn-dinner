@@ -27,23 +27,42 @@
 }
 
 h1 {
-  color: #2B9F9F
+  color: #2B9F9F;
+}
+
+h2 {
+  color: #2B9F9F;
+  font-size: 24px;
 }
 
 a {
-  color: #9F3700
+  color: #9F3700;
 }
 
 a.visited {
-  color: #00739F
+  color: #00739F;
 }
 
 a.hover {
-  color: #9F9400
+  color: #9F9400;
 }
 
 a.active {
-  color: #009F93
+  color: #009F93;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding-top: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: 10px;
+}
+
+.space {
+  border-collapse: separate;
+  border-spacing: 20px 10px;
 }
 
 

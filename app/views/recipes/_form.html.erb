@@ -1,10 +1,18 @@
-  <%= simple_form_for @recipe do |f| %>
-    <%= f.input :name %>
-    <%= f.input :infobox, input_html: { id: 'box' }%>
-    <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id %>
-    <%#= f.association :categories, collection: @categories, as: :check_boxes ##THIS CAUSES CATEGORY TO JUST BE YES/NO CHECKBOXES, IS HILARIOUS%>
+  <div>
+    <%= simple_form_for @recipe do |f| %>
+      <%= f.input :name %>
+      <%= f.input :infobox, input_html: { id: 'box' }%>
+      <%#= f.association :categories, collection: @categories, as: :check_boxes ##THIS CAUSES CATEGORY TO JUST BE YES/NO CHECKBOXES, IS HILARIOUS%>
 
-    <%= f.button :submit, class: "btn btn-default recipe-button" %>
-  <% end %>
+      <table class="space">
+        <tr>
+          <td><%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id %></td>
+        </tr>
+        <tr>
+          <td><%= f.button :submit, class: "btn btn-default recipe-button" %></td>
+          <td><%= link_to 'New Tag', new_category_path, class: "btn btn-default tag-button" %></td>
+        </tr>
+      </table>
+    <% end %>
 
-  <%= link_to 'New Tag', new_category_path, class: "btn btn-default tag-button" %>
+  </div>

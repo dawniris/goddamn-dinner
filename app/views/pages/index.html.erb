@@ -1,8 +1,17 @@
-<div><%= link_to "new recipe", new_recipe_path, class: "btn btn-default recipe-button" %></div>
-<div><%= link_to "recipes", recipes_path, class: "btn recipe-button" %></div>
-<br/>
-<div><%= link_to 'new tag', new_category_path, class: "btn btn-default tag-button" %></div>
-<div><%= link_to 'alla tags', categories_path, class: "btn tag-button" %></div>
-<br/>
+<p>
+  <div class="center">
+    <table>
+      <tr>
+      <th colspan="4"><h2>what are we making for goddamn dinner</h2></th>
+      </tr>
+      <tr>
+        <td><div><%= link_to "new recipe", new_recipe_path, class: "btn btn-default recipe-button" %></div></td>
+        <td><div><%= link_to "recipes", recipes_path, class: "btn recipe-button" %></div></td>
+        <td><div><%= link_to 'new tag', new_category_path, class: "btn btn-default tag-button" %></div></td>
+        <td><div><%= link_to 'alla tags', categories_path, class: "btn tag-button" %></div></td>
+      </tr>
+    </table>
+  </div>
+</p>
 
 
